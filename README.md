@@ -1,2 +1,0 @@
-# Bcgamerewards
-Chase your dreams
