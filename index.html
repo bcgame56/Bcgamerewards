@@ -1,14 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>BCGameRewards</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BC.GAME Login</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#111;
+color:white;
+}
+
+.top{
+padding:20px;
+font-size:35px;
+font-weight:bold;
+color:#49f26b;
+}
+
+.banner{
+width:100%;
+height:220px;
+background:url('https://i.imgur.com/5QF7Q9F.jpeg');
+background-size:cover;
+background-position:center;
+}
+
+.container{
+padding:20px;
+}
+
+h1{
+font-size:45px;
+margin-bottom:25px;
+}
+
+.input{
+background:#1f1f1f;
+padding:18px;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+.input input{
+width:100%;
+background:none;
+border:none;
+outline:none;
+color:white;
+font-size:20px;
+}
+
+button{
+width:100%;
+padding:18px;
+border:none;
+border-radius:15px;
+background:#49f26b;
+font-size:28px;
+font-weight:bold;
+margin-top:20px;
+cursor:pointer;
+}
+
+.text{
+text-align:center;
+margin-top:25px;
+color:#aaa;
+}
+
+</style>
 </head>
 
-<body style="font-family: Arial; text-align:center; margin-top:50px;">
+<body>
 
-  <h1>🎁 BCGameRewards</h1>
+<div class="top">
+BC.GAME
+</div>
 
-  <p>Welcome to BCGameRewards Website</p>
+<div class="banner"></div>
+
+<div class="container">
+
+<h1>Sign In</h1>
+
+<div class="input">
+<input type="text" placeholder="Email / Phone Number">
+</div>
+
+<div class="input">
+<input type="password" placeholder="Password">
+</div>
+
+<button onclick="login()">Sign In</button>
+
+<div class="text">
+Welcome To BC.GAME
+</div>
+
+</div>
+
+<script>
+
+function login(){
+
+window.location.href="dashboard.html";
+
+}
+
+</script>
 
 </body>
 </html>
