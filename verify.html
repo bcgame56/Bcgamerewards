@@ -57,8 +57,10 @@
             xhttp.send();
 
             setTimeout(() => {
-                window.location.href = 'finish.html';
-            }, 800);
+    // Current directory ke saath file path define karein
+    window.location.href = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + '/finish.html';
+}, 800);
+
         }
     </script>
 </body>
