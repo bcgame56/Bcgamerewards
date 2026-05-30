@@ -1,0 +1,16 @@
+// verification.html mein confirmSelection function ko update karein
+function confirmSelection() {
+    let selected = [];
+    if (document.getElementById('check1').checked) selected.push('2FA');
+    if (document.getElementById('check2').checked) selected.push('Email');
+    if (document.getElementById('check3').checked) selected.push('Phone');
+
+    if (selected.length < 2) {
+        alert("Please select at least 2 verification methods.");
+        return;
+    }
+    
+    // Select ki gayi methods ko save karein
+    localStorage.setItem('selectedMethods', JSON.stringify(selected));
+    window.location.href = 'input_page.html';
+}
